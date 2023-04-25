@@ -22,8 +22,8 @@ h2 {
 }
 
 .text {
-    font-size: 22pt;
-    line-height: 28pt;
+    font-size: 22px;
+    line-height: 28px;
     @include media-breakpoint-up(md) {
         margin-left: 120px;
         margin-right: 120px;
@@ -71,7 +71,7 @@ span {
 }
 
 .bg-green {
-    background: limegreen;
+    background: #85FF00;
     color: blue;
 }
 
@@ -85,14 +85,14 @@ span {
 
 .text-underline-green {
     text-decoration: underline;
-    text-decoration-color: limegreen;
+    text-decoration-color: #85FF00;
     text-decoration-thickness: 3px;
     text-underline-offset: 3px;
 }
 
 .header {
-    font-size: 22pt;
-    line-height: 28pt;
+    font-size: 22px;
+    line-height: 28px;
     z-index: 1100;
 }
 
@@ -167,6 +167,13 @@ html, body {
 
 .circle {
     border-radius: 50%;
+}
+
+.pheading-number {
+    @include media-breakpoint-up(md) {
+        position: absolute;
+        left: 72px;
+    }
 }
 
 

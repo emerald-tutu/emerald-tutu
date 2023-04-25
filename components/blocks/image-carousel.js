@@ -2,7 +2,6 @@ import { useState } from "react";
 import Image from "./image";
 
 export default function ImageCarousel({images, id}) {
-    console.log(images)
     const [active, setActive] = useState(0);
     const length = images.length;
 
@@ -24,8 +23,6 @@ export default function ImageCarousel({images, id}) {
         maxWidth = Math.max(maxWidth, img.image.width)
         maxHeight = Math.max(maxHeight, img.image.height)
     }
-
-    console.log(maxWidth)
 
     return (
         <div id={id} className="width-max-content w-100 my-auto mx-0 pt-4 pb-2 mb-2 blue-bg d-flex flex-column">

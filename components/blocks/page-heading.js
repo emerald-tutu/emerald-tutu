@@ -3,13 +3,13 @@ import circleNum from "../utils"
 export default function PageHeading({page}) {
     var sectionCount = 0;
     return <div id="pheading" className="site-container p-0 display-2 font-monument hidden-link w-auto text-center mb-4">
-            <div className="text-margins d-flex display-2">
-                <div className="me-3">
+            <div className="d-flex text-margins display-2">
+                <div className="pheading-number">
                     {circleNum(page.pageNumber)}
                 </div>
-                <div>
+                <span>
                     {page.title}
-                </div>
+                </span>
             </div>
             <div className="d-flex text mw-100">
                 {page?.blocks.map((block, idx) => 

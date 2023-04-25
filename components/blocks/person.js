@@ -1,14 +1,17 @@
 import Circle from '../circle'
 
 export default function Person({name, title, bio, photo}) {
+    console.log(title)
     return (
-        <div className="p-3 my-3 blue-border d-flex">
+        <div className="p-3 my-4 blue-border d-flex">
             <div className='me-4'>
                 <div className="mb-3">
 
                     <div className="d-flex font-monument mb-3">
                         <Circle size="22"/>
-                        <h3 className='ms-3 my-auto fw-bold'>{name}, {title}</h3>
+                        {title.length > 0 ? 
+                            <h3 className='ms-3 my-auto fw-bold'>{name}, {title}</h3> : 
+                            <h3 className='ms-3 my-auto fw-bold'>{name}</h3>}
                     </div>
                 </div>
                 <div className='mx-auto'>

@@ -2,7 +2,7 @@ import { useIdleTimer } from "react-idle-timer"
 import PageNav from "./page-nav"
 
 export default function Footer({pages, address}) {
-    const TIMEOUT_INTERVAL = 2000 // in ms
+    const TIMEOUT_INTERVAL = 10000 // in ms
 
     const onIdle = () => {
         const footer = document.getElementById("growing-portion");
@@ -17,7 +17,7 @@ export default function Footer({pages, address}) {
     const idleTimer = useIdleTimer({onIdle, onAction: onReset, timeout: TIMEOUT_INTERVAL})
 
     return(
-        <div id="footer" className="blue-bg">
+        <div id="footer" className="blue-bg py-4">
             <div className="row">
                 <div>
                     <span className="align-self-center">{address}</span>
