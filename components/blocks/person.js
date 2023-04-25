@@ -1,7 +1,6 @@
 import Circle from '../circle'
 
 export default function Person({name, title, bio, photo}) {
-    console.log(title)
     return (
         <div className="p-3 my-4 blue-border d-flex">
             <div className='me-4'>
