@@ -180,11 +180,16 @@ html, body {
     }
 }
 
+.width-fit-content {
+    width: fit-content;
+}
+
 
 /* site heading + animation stuff */
 .site-heading {
     font-family: 'Monument Ventile Fullmoon';
     letter-spacing: .1em;
+    line-height: 1;
     font-variation-settings: "wght" 100, "slnt" 0;
 }
 

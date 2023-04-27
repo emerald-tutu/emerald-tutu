@@ -1,15 +1,25 @@
 import circleNum from "../utils"
+import { useState } from "react";
 
-export default function PageHeading({page}) {
+export default function PageHeading({page, otherPages}) {
+    var [isExpanded, setExpanded] = useState({isExpanded: false})
+
     var sectionCount = 0;
-    return <div id="pheading" className="site-container p-0 display-2 font-monument hidden-link w-auto text-center mb-4">
-            <div className="d-flex text-margins display-2">
-                <div className="pheading-number">
-                    {circleNum(page.pageNumber)}
+    return <div id="pheading" className="site-container p-0 display-2 hidden-link w-auto text-center mb-4" onMouseEnter={() => setExpanded(true)} onMouseLeave={() =>setExpanded(false)}>
+            <div className="width-fit-content text-margins">
+                <div className="font-monument display-2">
+                    <div className="pheading-number">
+                        {circleNum(page.pageNumber)}
+                    </div>
+                    <span>
+                        {page.title}
+                    </span>
                 </div>
-                <span>
-                    {page.title}
-                </span>
+                {otherPages && isExpanded && otherPages.map((p) => {
+                    if (p.pageNumber != page.pageNumber) {
+                        return pheading(p)
+                    }
+                })}   
             </div>
             <div className="d-flex text mw-100">
                 {page?.blocks.map((block, idx) => 
@@ -30,4 +40,17 @@ export default function PageHeading({page}) {
                 )}    
             </div>
         </div>
+}
+
+function pheading(page) {
+    return (
+        <div className="d-flex font-monument display-2">
+            <div className="pheading-number">
+                {circleNum(page.pageNumber)}
+            </div>
+            <span>
+                {page.title}
+            </span>
+        </div>
+    )
 }

@@ -10,7 +10,7 @@ import PageHeading from '@/components/blocks/page-heading'
 export default function Page({ page }) {
   return (
     <>
-      <PageHeading page={page}/>
+      <PageHeading page={page} otherPages={page?.footer.pages}/>
       <Wrapper {...page} />
     </>
   )
