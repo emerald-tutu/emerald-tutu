@@ -1,13 +1,25 @@
 import circleNum from "../utils"
 import { useState } from "react";
+import Circle from "../circle";
+import SiteLogo from "../site-logo";
 
 export default function PageHeading({page, otherPages}) {
     var [isExpanded, setExpanded] = useState({isExpanded: false})
 
     var sectionCount = 0;
     return <div id="pheading" className="site-container p-0 display-2 hidden-link w-auto text-center mb-4" onMouseEnter={() => setExpanded(true)} onMouseLeave={() =>setExpanded(false)}>
+            <div className="position-relative" style={{"left": "50px"}}>
+                <div id="siteHeading" className="site-heading display-1 d-flex">
+                <div className="mx-2 my-auto">
+                    <Circle size="50"/>
+                </div>
+                <div className="my-auto">
+                    <SiteLogo text="EMERALD TUTU"/>
+                </div>
+            </div>
+            </div>
             <div className="width-fit-content text-margins">
-                <div className="font-monument display-2">
+                <div className="font-monument width-fit-content display-2">
                     <div className="pheading-number">
                         {circleNum(page.pageNumber)}
                     </div>
@@ -15,9 +27,9 @@ export default function PageHeading({page, otherPages}) {
                         {page.title}
                     </span>
                 </div>
-                {otherPages && isExpanded && otherPages.map((p) => {
+                {otherPages && isExpanded && otherPages.map((p, idx) => {
                     if (p.pageNumber != page.pageNumber) {
-                        return pheading(p)
+                        return pheading(p, idx)
                     }
                 })}   
             </div>
@@ -42,14 +54,14 @@ export default function PageHeading({page, otherPages}) {
         </div>
 }
 
-function pheading(page) {
+function pheading(page, key) {
     return (
-        <div className="d-flex font-monument display-2">
+        <div key={key} className="d-flex font-monument display-2">
             <div className="pheading-number">
                 {circleNum(page.pageNumber)}
             </div>
-            <span>
-                {page.title}
+            <span className="hidden-link">
+                <a href={page.slug}>{page.title}</a>
             </span>
         </div>
     )
