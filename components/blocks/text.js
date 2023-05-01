@@ -1,11 +1,11 @@
 // TODO: markdown elements
 export default function Text({paragraphs, isBlueBackground}) {
     return (
-        <div className="container text w-auto">
+        <div className="text w-auto">
             {paragraphs.map((paragraph, idx) => {
                 return (
-                <div key={idx} className="row justify-content-center">
-                    <p className={"col-12 col-md-10 col-xl-8 mb-2 p-0" + (isBlueBackground ? " blue-bg" : "")}>{paragraph}</p>
+                <div key={idx} className="justify-content-center">
+                    <p className={"mb-2 p-0" + (isBlueBackground ? " blue-bg text-center p-1 mt-1" : "")}>{paragraph}</p>
                 </div>
                 )
             })}

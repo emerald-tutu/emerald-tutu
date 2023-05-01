@@ -22,15 +22,13 @@ function PreviewBanner({ enabled = false }) {
   )
 }
 
-export default function SiteLayout({ children, page, preview = false }) {
+export default function SiteLayout({ children, page, preview = true }) {
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', 
-        backgroundImage: page?.slug && page.slug == "home" ? "url(" + page?.backgroundImage.url + ")" : "" }}
-      className={page?.slug && page.slug == "home" ? "gradient-background" : ""}
+      style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh'}}
     >
       <PreviewBanner enabled={false} />
-      {page?.header && <Header></Header>}
+      {page?.header && page?.footer && <Header {...page.footer}/>}
       <div style={{ flexGrow: 1, marginTop: page?.header && "2rem"}}>{children}</div>
       {page?.footer && <Footer {...page.footer} />}
     </div>
@@ -38,5 +36,5 @@ export default function SiteLayout({ children, page, preview = false }) {
 }
 
 export const getLayout = (page) => (
-  <SiteLayout {...page.props}>{page}</SiteLayout>
+    <SiteLayout {...page.props}>{page}</SiteLayout>
 )

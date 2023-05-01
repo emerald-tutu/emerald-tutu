@@ -1,0 +1,331 @@
+@import "bootstrap/scss/functions"; 
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+.site-container {
+    @include make-container();
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Helvetica Neue', 'Arial Narrow', Arial, sans-serif;
+    color: blue;
+    font-weight: 500;
+    overflow-x:hidden;
+}
+
+h2 {
+    font-size: 22pt;
+    line-height: 28pt;
+}
+
+.text {
+    font-size: 22px;
+    line-height: 28px;
+    @include media-breakpoint-up(md) {
+        margin-left: 120px;
+        margin-right: 120px;
+    }
+}
+
+.text-margins {
+    @include media-breakpoint-up(md) {
+        margin-left: 120px;
+        margin-right: 120px;
+    }
+}
+
+span {
+    font-weight: bold;
+}
+
+.circle {
+    border-radius: 50%
+}
+
+.hidden-link a {
+    color: blue;
+    text-decoration: none;
+}
+
+.hidden-link a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.blue-bg .hidden-link  a {
+    color: white;
+    text-decoration: none;
+}
+
+.blue-bg .hidden-link a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.blue-bg {
+    background: blue;
+    color: #ffffff;
+}
+
+.white-bg {
+    background: #ffffff;
+}
+
+.bg-green {
+    background: #85FF00;
+    color: blue;
+}
+
+.bg-green.hidden-link a {
+    color: blue;
+}
+
+.bg-green.hidden-link a:hover {
+    color: blue;
+}
+
+.text-underline-green {
+    text-decoration: underline;
+    text-decoration-color: #85FF00;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+}
+
+.header {
+    font-size: 22px;
+    line-height: 28px;
+    z-index: 1100;
+}
+
+.font-monument {
+    font-family: 'Monument Ventile Fullmoon';
+    letter-spacing: .1em;
+    font-variation-settings: "wght" 50, "slnt" 0;
+    transition: font-variation-settings 400ms ease;
+}
+
+.font-monument:hover {
+    font-variation-settings: "wght" 90, "slnt" 0;
+}
+
+.blue-border {
+    border: blue solid;
+    border-width: .3rem;
+}
+
+.anchor:target::before {
+    content: "";
+    display: block;
+    height: 1.5rem; /* fixed header height*/
+    margin: -1.5rem 0 0; /* negative fixed header height */
+}
+
+html, body {
+    height: 100%;
+}
+
+.annotation {
+    overflow: hidden;
+}
+
+.annotation .annotation-text {
+    width: 0px;
+    display: none;
+    transition-property: width;
+    transition-duration: 1s;
+    flex-shrink: 0;
+    max-width: 300px;
+}
+
+.annotation:hover .annotation-text {
+    display: block;
+    width: auto;
+    z-index: 1;
+}
+
+.text-green {
+    color: limegreen;
+}
+
+.person-mh {
+    max-height: 240px;
+    max-width: 240px;
+}
+
+
+.info-tip {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    max-width: 400px;
+    min-height: 3.3rem;
+    position:relative
+}
+
+.info-tip:hover {
+    margin-right: 1rem;
+    max-height:min-content;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.pheading-number {
+    @include media-breakpoint-up(md) {
+        position: absolute;
+        left: -64px;
+    }
+}
+
+.width-fit-content {
+    width: fit-content;
+}
+
+
+/* site heading + animation stuff */
+.site-heading {
+    font-family: 'Monument Ventile Fullmoon';
+    letter-spacing: .1em;
+    line-height: 1;
+    font-variation-settings: "wght" 100, "slnt" 0;
+}
+
+.site-logo span {
+    display: inline-block;  
+    animation: wave 1.4s ease infinite;
+}
+
+.site-logo div {
+    opacity: 0;
+    width: 0.5rem;
+    display: inline-block;  
+}
+
+.site-logo {
+    transition: font-variation-settings 400ms ease;
+    font-variation-settings: "wght" 100, "slnt" 0;
+}
+
+.site-logo span {
+    display: inline-block;  
+    animation: wave 1.4s ease infinite;
+}
+
+.site-logo div {
+    opacity: 0;
+    width: 0.5rem;
+    display: inline-block;  
+}
+
+.site-logo:hover {
+    animation-play-state: paused;
+}
+
+
+@keyframes wave {
+    0% {
+        font-variation-settings: "wght" 100, "slnt" 0;
+    }
+
+    50% {
+        font-variation-settings: "wght" 40, "slnt" 0;
+    }
+
+    100% {
+        font-variation-settings: "wght" 100, "slnt" 0;
+    }
+}
+
+.site-logo span:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+.site-logo span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.site-logo span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.site-logo span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.site-logo span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.site-logo span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.site-logo span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.site-logo span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+.site-logo span:nth-child(10) {
+    animation-delay: 0.9s;
+}
+
+.site-logo span:nth-child(11) {
+    animation-delay: 1s;
+}
+
+.site-logo span:nth-child(13) {
+    animation-delay: 1.1s;
+}
+
+
+.site-logo span:nth-child(14) {
+    animation-delay: 1.2s;
+}
+
+
+.site-logo span:nth-child(15) {
+    animation-delay: 1.3s;
+}
+
+
+.site-logo span:nth-child(16) {
+    animation-delay: 1.4s;
+}
+
+.width-max-content {
+    width: max-content;
+}
+
+
+/* growing footer animation */
+@keyframes grow-footer {
+    from {margin-bottom: 0px;}
+    to {margin-bottom: 1000px;}
+}
+
+.growing-portion {
+    height: 1px
+}
+
+.growing-footer {
+    position: relative;
+    bottom: 0;
+    animation-name: grow-footer;
+    animation-duration: 10s;
+}
+
+/* fade in for collapsables */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 100;}
+}
+
+.fade-in {
+    animation: fadeIn 1s;
+}

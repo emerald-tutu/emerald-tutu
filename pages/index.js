@@ -8,13 +8,13 @@ import SiteHeading from '@/components/site-heading'
 export default function IndexPage({ page }) {
   return (<div className='h-100'>
       <div className='mx-auto my-3 d-block text-center'>
-        <SiteHeading text="The Emerald Tutu"/>
+        <SiteHeading text="Emerald Tutu"/>
       </div>
     <Wrapper {...page} />
     </div>)
 }
 
-export async function getStaticProps({preview = false }) {
+export async function getStaticProps({preview = true }) {
   const client = graphcmsClient(preview)
 
   const { page } = await client.request(pageQuery, {
