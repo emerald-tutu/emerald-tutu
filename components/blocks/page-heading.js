@@ -18,7 +18,7 @@ export default function PageHeading({page, otherPages}) {
                 </div>
             </div>
             </div>
-            <div className="width-fit-content text-margins">
+            <div className="width-fit-content position-relative text-margins">
                 <div className="font-monument width-fit-content display-2">
                     <div className="pheading-number">
                         {circleNum(page.pageNumber)}
@@ -27,11 +27,14 @@ export default function PageHeading({page, otherPages}) {
                         {page.title}
                     </span>
                 </div>
-                {otherPages && isExpanded && otherPages.map((p, idx) => {
-                    if (p.pageNumber != page.pageNumber) {
-                        return pheading(p, idx)
-                    }
-                })}   
+                <div className="position-absolute">
+                    {otherPages && isExpanded && otherPages.map((p, idx) => {
+                        if (p.pageNumber != page.pageNumber) {
+                            return pheading(p, idx)
+                        }
+                    })}   
+                </div>
+
             </div>
             <div className="d-flex text mw-100">
                 {page?.blocks.map((block, idx) => 
@@ -56,7 +59,7 @@ export default function PageHeading({page, otherPages}) {
 
 function pheading(page, key) {
     return (
-        <div key={key} className="d-flex font-monument display-2">
+        <div key={key} className="d-flex font-monument white-bg display-2">
             <div className="pheading-number">
                 {circleNum(page.pageNumber)}
             </div>

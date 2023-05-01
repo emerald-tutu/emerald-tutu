@@ -5,8 +5,8 @@ import Circle from "./circle"
 export default function SiteHeading({text}) {
     text = text.toUpperCase()
     return (
-        <div id="siteHeading" className="site-heading display-1 d-flex container">
-            <div className="mx-2 my-auto">
+        <div id="siteHeading" className="site-heading display-1 d-flex">
+            <div className="mx-2 mt-1">
                 <Circle size="64"/>
             </div>
             <div className="my-auto">

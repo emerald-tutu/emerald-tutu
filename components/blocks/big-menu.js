@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function BigMenu({pages}) {
     return(
-        <div className="container mx-auto h3 hidden-link">
+        <div className="ms-2 me-auto h3 hidden-link">
             {pages?.map((page, idx) =>
             <div key={idx}>
                 <BigMenuItem {...page}/>

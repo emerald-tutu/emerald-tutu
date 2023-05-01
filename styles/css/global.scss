@@ -176,7 +176,7 @@ html, body {
 .pheading-number {
     @include media-breakpoint-up(md) {
         position: absolute;
-        left: 72px;
+        left: -64px;
     }
 }
 
