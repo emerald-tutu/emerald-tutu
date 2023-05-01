@@ -2,12 +2,13 @@ import circleNum from "../utils"
 import { useState } from "react";
 import Circle from "../circle";
 import SiteLogo from "../site-logo";
+import { Collapse } from "react-bootstrap";
 
 export default function PageHeading({page, otherPages}) {
     var [isExpanded, setExpanded] = useState({isExpanded: false})
 
     var sectionCount = 0;
-    return <div id="pheading" className="site-container p-0 display-2 hidden-link w-auto text-center mb-4" onMouseEnter={() => setExpanded(true)} onMouseLeave={() =>setExpanded(false)}>
+    return <div id="pheading" className="site-container p-0 display-2 hidden-link w-auto text-center mb-4">
             <div className="position-relative" style={{"left": "50px"}}>
                 <div id="siteHeading" className="site-heading display-1 d-flex">
                 <div className="mx-2 my-auto">
@@ -18,7 +19,7 @@ export default function PageHeading({page, otherPages}) {
                 </div>
             </div>
             </div>
-            <div className="width-fit-content position-relative text-margins">
+            <div className="width-fit-content position-relative text-margins" onMouseEnter={() => setExpanded(true)} onMouseLeave={() =>setExpanded(false)}>
                 <div className="font-monument width-fit-content display-2">
                     <div className="pheading-number">
                         {circleNum(page.pageNumber)}
@@ -27,14 +28,17 @@ export default function PageHeading({page, otherPages}) {
                         {page.title}
                     </span>
                 </div>
-                <div className="position-absolute">
-                    {otherPages && isExpanded && otherPages.map((p, idx) => {
-                        if (p.pageNumber != page.pageNumber) {
-                            return pheading(p, idx)
-                        }
-                    })}   
-                </div>
-
+                {otherPages &&
+                    <Collapse in={isExpanded}>
+                        <div className="position-absolute">
+                            {otherPages.map((p, idx) => {
+                                if (p.pageNumber != page.pageNumber) {
+                                    return pheading(p, idx)
+                                }
+                            })}   
+                        </div>
+                    </Collapse>      
+                }
             </div>
             <div className="d-flex text mw-100">
                 {page?.blocks.map((block, idx) => 
