@@ -1,7 +1,7 @@
 export default function Heading({heading}) {
     return (
-        <div>
-            <h1>{heading}</h1>
+        <div className="site-container font-monument text-margins my-3">
+            <h2>{heading}</h2>
         </div>
     )
 }

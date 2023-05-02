@@ -17,8 +17,13 @@ body {
 }
 
 h2 {
-    font-size: 22pt;
-    line-height: 28pt;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+.body-text-size {
+    font-size: 22px;
+    line-height: 28px;
 }
 
 .text {
@@ -113,7 +118,7 @@ span {
 
 .blue-border {
     border: blue solid;
-    border-width: .3rem;
+    border-width: 4px;
 }
 
 .anchor:target::before {
@@ -160,13 +165,13 @@ html, body {
     border-radius: 50%;
     aspect-ratio: 1/1;
     max-width: 400px;
-    min-height: 3.3rem;
+    min-height: 42px;
     position:relative
 }
 
 .info-tip:hover {
-    margin-right: 1rem;
-    max-height:min-content;
+    margin-right: 16px;
+    max-height: min-content;
 }
 
 .circle {
@@ -200,7 +205,7 @@ html, body {
 
 .site-logo div {
     opacity: 0;
-    width: 0.5rem;
+    width: 8px;
     display: inline-block;  
 }
 
@@ -216,7 +221,7 @@ html, body {
 
 .site-logo div {
     opacity: 0;
-    width: 0.5rem;
+    width: 8px;
     display: inline-block;  
 }
 

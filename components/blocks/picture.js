@@ -7,7 +7,7 @@ export default function Picture({photo, altText, caption}) {
                 width={photo.width}
                 alt={altText} // TODO: add alt text to pictures
             />
-            {caption && <span className="row">{photo.caption}</span>} 
+            {caption && <span className="row mb-3">{photo.caption}</span>} 
         </div>
     )
 }
