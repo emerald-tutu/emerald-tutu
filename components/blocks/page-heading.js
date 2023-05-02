@@ -3,9 +3,10 @@ import { useState } from "react";
 import Circle from "../circle";
 import SiteLogo from "../site-logo";
 import { Collapse } from "react-bootstrap";
+import Link from "next/link";
 
 export default function PageHeading({page, otherPages}) {
-    var [isExpanded, setExpanded] = useState({isExpanded: false})
+    var [isHidden, setHidden] = useState({isHidden: true})
 
     var sectionCount = 0;
     return <div id="pheading" className="site-container p-0 display-2 hidden-link w-auto text-center mb-4">
@@ -15,11 +16,13 @@ export default function PageHeading({page, otherPages}) {
                     <Circle size="50"/>
                 </div>
                 <div className="my-auto">
-                    <SiteLogo text="EMERALD TUTU"/>
+                    <Link href="/" passHref>
+                        <SiteLogo text="EMERALD TUTU"/>
+                    </Link>
                 </div>
             </div>
             </div>
-            <div className="width-fit-content position-relative text-margins" onMouseEnter={() => setExpanded(true)} onMouseLeave={() =>setExpanded(false)}>
+            <div className="width-fit-content position-relative text-margins" onMouseEnter={() => setHidden(false)} onMouseLeave={() =>setHidden(true)}>
                 <div className="font-monument width-fit-content display-2">
                     <div className="pheading-number">
                         {circleNum(page.pageNumber)}
@@ -29,7 +32,7 @@ export default function PageHeading({page, otherPages}) {
                     </span>
                 </div>
                 {otherPages &&
-                    <Collapse in={isExpanded}>
+                    <Collapse in={!isHidden}>
                         <div className="position-absolute">
                             {otherPages.map((p, idx) => {
                                 if (p.pageNumber != page.pageNumber) {

@@ -11,9 +11,9 @@ function NumberedListItem({itemTitle, itemDescription}) {
 
 
 export default function NumberedList({title, items}) {
-    var [isExpanded, setExpanded] = useState({isExpanded: false})
+    var [isHidden, setHidden] = useState({isHidden: false})
     return (
-        <div className={"container col-12 col-md-10 col-xl-8 p-2 my-2 blue-bg"} onClick={() => setExpanded(!isExpanded)}>
+        <div className={"container col-12 col-md-10 col-xl-8 p-2 my-2 blue-bg"} onClick={() => setHidden(!isHidden)}>
             <div className="blue-bg">
                 <div className="d-inline-flex w-100">
                     <div className="d-flex w-100">
@@ -21,10 +21,10 @@ export default function NumberedList({title, items}) {
                         <span className="h2 mb-0 w-100">{title}</span>
                     </div>
                     <span>
-                    {!isExpanded ? "-" : "+"}
+                    {isHidden ? "-" : "+"}
                     </span>
                 </div>
-                <Collapse in={isExpanded}>
+                <Collapse in={!isHidden}>
                     <div>
                         {items.map((item, idx) => 
                             <div className="d-flex mx-auto" key={idx}>
