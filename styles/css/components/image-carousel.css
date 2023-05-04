@@ -18,3 +18,11 @@
 .bg-white {
     background-color: #fff;
 }
+
+.color-blue {
+    color: blue;
+}
+
+.border-thin-blue {
+    border: blue 1px solid;
+}
