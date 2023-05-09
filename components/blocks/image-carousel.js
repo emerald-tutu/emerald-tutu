@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "./image";
 
-export default function ImageCarousel({images, blueBackground, id}) {
+export default function ImageCarousel({images, blueBackground, id, heading}) {
     const [active, setActive] = useState(0);
     const length = images.length;
 
@@ -27,6 +27,9 @@ export default function ImageCarousel({images, blueBackground, id}) {
     return (
         <div id={id} className={`width-max-content w-100 my-auto mx-0 pt-4 pb-2 mb-4 d-flex flex-column ${blueBackground? "blue-bg" : ""}`}>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
+            {heading && (
+                <h2 className="text-center mb-3">{heading}</h2>
+            )}
             <div className="mx-auto mt-auto">
                 {images.map((img, idx) => 
                     <div

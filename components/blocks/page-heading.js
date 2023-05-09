@@ -16,15 +16,17 @@ export default function PageHeading({page, otherPages}) {
                     <Circle size="50"/>
                 </div>
                 <div className="my-auto">
-                    <Link href="/" passHref>
-                        <SiteLogo text="EMERALD TUTU"/>
-                    </Link>
+                        <Link href="/" passHref>
+                            <a>
+                                <SiteLogo text="EMERALD TUTU"/>
+                            </a>
+                        </Link>
                 </div>
             </div>
             </div>
-            <div className="width-fit-content position-relative text-margins" onMouseEnter={() => setHidden(false)} onMouseLeave={() =>setHidden(true)}>
-                <div className="font-monument width-fit-content display-2">
-                    <div className="pheading-number">
+            <div className="position-relative" style={{"left": "121px"}} onMouseEnter={() => setHidden(false)} onMouseLeave={() =>setHidden(true)}>
+                <div className="font-monument width-fit-content d-flex">
+                    <div className="pheading-number width-fit-content">
                         {circleNum(page.pageNumber)}
                     </div>
                     <span>
@@ -43,7 +45,7 @@ export default function PageHeading({page, otherPages}) {
                     </Collapse>      
                 }
             </div>
-            <div className="d-flex text mw-100">
+            <div className="d-flex text">
                 {page?.blocks.map((block, idx) => 
                     {   
                         if (block.__typename == "Section") {
