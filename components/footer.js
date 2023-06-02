@@ -1,5 +1,5 @@
 import { useIdleTimer } from "react-idle-timer"
-import PageNav from "./page-nav"
+import PageNav, { HANG_NUMBERS } from "./page-nav"
 
 export default function Footer({pages, address}) {
     const TIMEOUT_INTERVAL = 10000 // in ms
@@ -19,12 +19,12 @@ export default function Footer({pages, address}) {
     return(
         <div id="footer" className="blue-bg py-4">
             <div className="row">
-                <div>
-                    <span className="align-self-center">{address}</span>
+                <div className="align-self-center mx-auto mb-auto d-flex footer-max-width">
+                    <span>{address}</span>
                 </div>
                     {pages.map((page, idx) => 
-                        <div className="d-flex mx-auto" style={{"maxWidth": "200px"}} key={idx}>
-                            <PageNav {...page}/>
+                        <div className="d-flex mx-auto footer-max-width" key={idx}>
+                            <PageNav {...page} hang_mode={HANG_NUMBERS}/>
                         </div>
                     )}
             </div>

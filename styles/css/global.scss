@@ -61,7 +61,7 @@ span {
 }
 
 .circle {
-    border-radius: 50%
+    border-radius: 50%;
 }
 
 .hidden-link a {
@@ -195,14 +195,29 @@ html, body {
 .pheading-number {
     @include media-breakpoint-up(md) {
         position: absolute;
-        left: -64px;
+        left: -72px;
     }
+    // to match circle size. Needs to be adjusted
+    font-size: 84px;
+    max-height: 64px;
+    margin-top: -12px;
 }
 
 .width-fit-content {
     width: fit-content;
 }
 
+.circle-margin {
+    padding-left: 76px;
+}
+
+.footer-max-width {
+    max-width: 200px;
+}
+
+.top-z {
+    z-index: 9999;
+}
 
 /* site heading + animation stuff */
 .site-heading {

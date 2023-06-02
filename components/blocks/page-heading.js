@@ -12,19 +12,20 @@ export default function PageHeading({page, otherPages}) {
     return <div id="pheading" className="site-container p-0 display-2 hidden-link w-auto text-center mb-4">
             <div className="position-relative" style={{"left": "50px"}}>
                 <div id="siteHeading" className="site-heading display-1 d-flex">
-                <div className="mx-2 my-auto">
-                    <Circle size="50"/>
-                </div>
-                <div className="my-auto">
-                        <Link href="/" passHref>
-                            <a>
-                                <SiteLogo text="EMERALD TUTU"/>
-                            </a>
-                        </Link>
+                    <div className="position-fixed top-z mt-1"
+                        onClick={()=> window.scrollTo({top: 0})}>
+                        <Circle size="64"/>
+                    </div>
+                    <div className="my-auto circle-margin">
+                            <Link href="/" passHref>
+                                <a>
+                                    <SiteLogo text="EMERALD TUTU"/>
+                                </a>
+                            </Link>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div className="position-relative" style={{"left": "121px"}} onMouseEnter={() => setHidden(false)} onMouseLeave={() =>setHidden(true)}>
+            <div className="position-relative my-3" style={{"left": "121px"}} onMouseEnter={() => setHidden(false)} onMouseLeave={() =>setHidden(true)}>
                 <div className="font-monument width-fit-content d-flex">
                     <div className="pheading-number width-fit-content">
                         {circleNum(page.pageNumber)}
@@ -44,24 +45,6 @@ export default function PageHeading({page, otherPages}) {
                         </div>
                     </Collapse>      
                 }
-            </div>
-            <div className="d-flex text">
-                {page?.blocks.map((block, idx) => 
-                    {   
-                        if (block.__typename == "Section") {
-                            var className = "font-monument mx- h6 d-flex text-uppercase text-underline-green"
-                            if (sectionCount == 0) {
-                                className += " me-auto"
-                            } else {
-                                className += " mx-auto"
-                            }
-                            sectionCount += 1
-                            return <h4 className={className} key={idx} 
-                                onClick={() => location.href = page?.slug + "#" + block.name}>{block.name}</h4>
-                        }
-                    }
-                    
-                )}    
             </div>
         </div>
 }
