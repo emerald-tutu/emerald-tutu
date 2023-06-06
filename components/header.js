@@ -4,10 +4,9 @@ import SiteLogo from "./site-logo";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-// takes a second, blank arg because we give it the footer information
-export default function Header({pages, _}) {
+export default function Header({pages}) {
 
-    const [scrolling, setScrolling] = useState(false);
+    const [_, setScrolling] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
 
     const onScroll = (e) => {

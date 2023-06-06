@@ -28,7 +28,7 @@ export default function SiteLayout({ children, page, preview = true }) {
       style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh'}}
     >
       <PreviewBanner enabled={false} />
-      {page?.header && page?.footer && <Header {...page.footer}/>}
+      {page?.header && page?.footer && page.footer?.pages && <Header pages={page.footer.pages}/>}
       <div style={{ flexGrow: 1, marginTop: "32px"}}>{children}</div>
       {page?.footer && <Footer {...page.footer} />}
     </div>
